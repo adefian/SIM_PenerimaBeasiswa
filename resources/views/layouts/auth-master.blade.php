@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ asset('assets/images/kop.png')}}" />
+    @yield('css')
 </head>
 
 <body>
@@ -52,6 +53,7 @@
     <script src="{{ asset('assets/js/settings.js')}}"></script>
     <script src="{{ asset('assets/js/todolist.js')}}"></script>
     <!-- endinject -->
+    @yield('js')
 </body>
 
 </html>

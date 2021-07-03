@@ -13,10 +13,29 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('role', function (Blueprint $table) {
             $table->id();
+            $table->string('role');
             $table->timestamps();
         });
+
+        DB::table('role')->insert(
+            [[
+                'role' => 'Wadir 3'
+            ],[
+                'role' => 'Akademik'
+            ],[
+                'role' => 'Admin Prodi'
+            ],[
+                'role' => 'Mahasiswa'
+            ]]
+        );
+
+        // insert([  
+        //     ['email' => 'taylor@example.com', 
+        //     'votes' => 0],   
+        //     ['email' => 'dayle@example.com',
+        //     'votes' => 0] ]);
     }
 
     /**
@@ -26,6 +45,6 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('role');
     }
 }

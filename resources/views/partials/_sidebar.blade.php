@@ -1,104 +1,146 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">UI Elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-              <i class="icon-columns menu-icon"></i>
-              <span class="menu-title">Form elements</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Charts</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Tables</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-              <i class="icon-contract menu-icon"></i>
-              <span class="menu-title">Icons</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">User Pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-              <i class="icon-ban menu-icon"></i>
-              <span class="menu-title">Error pages</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="error">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
-              <i class="icon-paper menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>
+            @if (auth()->user()->id_role == 1) Wadir III
+                <li class="nav-item {{ request()->is('dashboard-wadir3') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('wadir3.index') }}">
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                {{-- <li class="nav-item {{ request()->is('wadir3/mahasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('wadir3-mahasiswa.index') }}">
+                        <i class="ti-agenda menu-icon"></i>
+                        <span class="menu-title">Data Mahasiswa</span>
+                    </a>
+                </li> --}}
+
+                <li class="nav-item {{ request()->is('wadir3/beasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('wadir3-beasiswa.index') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Data Penerima <br> Beasiswa</span>
+                    </a>
+                </li>
+                
+                {{-- <li class="nav-item {{ request()->is('wadir3/laporan-beasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('wadir3.laporan') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Laporan Beasiswa</span>
+                    </a>
+                </li> --}}
+            @endif
+
+            @if (auth()->user()->id_role == 2) Akademik
+                <li class="nav-item {{ request()->is('admin-akademik') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('akademik.index') }}">
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item {{ request()->is('akademik/beasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('akademik-beasiswa.index') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Data Beasiswa</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('akademik/mahasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('akademik-mahasiswa.index') }}">
+                        <i class="ti-agenda menu-icon"></i>
+                        <span class="menu-title">Data Calon <br>Penerima Mahasiswa</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('akademik/laporan-beasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('akademik.laporan') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Laporan</span>
+                    </a>
+                </li>
+
+            @endif
+
+            @if (auth()->user()->id_role == 3) Admin Prodi
+                <li class="nav-item {{ request()->is('admin-prodi') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin-prodi.index') }}">
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item {{ request()->is('admin/mahasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('mahasiswa.index') }}">
+                        <i class="ti-agenda menu-icon"></i>
+                        <span class="menu-title">Data Mahasiswa</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('admin/beasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('beasiswa.index') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Data Beasiswa</span>
+                    </a>
+                </li>
+                
+                <li class="nav-item {{ request()->is('admin/pengumuman') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin-prodi.pengumuman') }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Pengajuan <br>Rekomendasi<br> Mahasiswa</span>
+                    </a>
+                </li>
+            @endif
+
+            @if (auth()->user()->id_role == 4) Mahasiswa
+
+                <li class="nav-item {{ request()->is('profile-mahasiswa/'.auth()->user()->id) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('mahasiswa.profile', auth()->user()->id) }}">
+                        <i class="ti-user menu-icon"></i>
+                        <span class="menu-title">Profile</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('dashboard-mahasiswa') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('mahasiswa.dashboard') }}">
+                        <i class="icon-grid menu-icon"></i>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('pendaftaran_beasiswa/'.auth()->user()->id) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('mahasiswa.pendaftaran-beasiswa', auth()->user()->id) }}">
+                        <i class="icon-paper menu-icon"></i>
+                        <span class="menu-title">Pendaftaran Beasiswa</span>
+                    </a>
+                </li>
+
+                <li class="nav-item {{ request()->is('datarumah-mahasiswa/'. auth()->user()->id) ? 'active' : '' }}
+                                    {{ request()->is('datakeluarga-mahasiswa/'. auth()->user()->id) ? 'active' : '' }}">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                        aria-controls="ui-basic">
+                        <i class="ti-id-badge menu-icon"></i>
+                        <span class="menu-title">Data Pribadi</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse {{ request()->is('datarumah-mahasiswa/'. auth()->user()->id) ? 'show' : '' }}
+                                        {{ request()->is('datakeluarga-mahasiswa/'. auth()->user()->id) ? 'show' : '' }}" id="ui-basic">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item {{ request()->is('datarumah-mahasiswa/'. auth()->user()->id) ? 'active' : '' }}"> <a class="nav-link"
+                                href="{{ route('datarumah-mahasiswa.show' , auth()->user()->id) }}">Data Rumah</a>
+                            </li>
+                            <li class="nav-item  {{ request()->is('datakeluarga-mahasiswa/'. auth()->user()->id) ? 'active' : '' }}"> <a class="nav-link"
+                                href="{{ route('datakeluarga-mahasiswa.show' , auth()->user()->id) }}">Data Keluarga</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                
+                <li class="nav-item {{ request()->is('pengumuman-mahasiswa/'.auth()->user()->id) ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('mahasiswa.pengumuman', auth()->user()->id) }}">
+                        <i class="ti-pulse menu-icon"></i>
+                        <span class="menu-title">Pengumuman</span>
+                    </a>
+                </li>
+
+            @endif
         </ul>
-      </nav>
+    </nav>
