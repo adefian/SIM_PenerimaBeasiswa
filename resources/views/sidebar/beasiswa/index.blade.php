@@ -15,11 +15,13 @@
                             {{-- <h5 class="font-weight-normal">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h5> --}}
                         </div>
                         <div class="col-2">
-                            <div class="justify-content-end d-flex">
-                                <button data-toggle="modal" data-target="#modalCreate" class="btn btn-success btn-sm icon-plus menu-icon fa-2x float-right"
-                                title="Tambahkan disini" style="margin-left: auto;"></button>
+                            @if(auth()->user()->id_role == 3 || auth()->user()->id_role == 2)
+                                <div class="justify-content-end d-flex">
+                                    <button data-toggle="modal" data-target="#modalCreate" class="btn btn-success btn-sm icon-plus menu-icon fa-2x float-right"
+                                    title="Tambahkan disini" style="margin-left: auto;"></button>
 
-                            </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -57,8 +59,11 @@
                                             <th>Tahun Perolehan</th>
                                             <th>Minimal IPK</th>
                                             <th>Jenis</th>
+                                            <th>Persyaratan</th>
                                             <th>Kontrak Beasiswa</th>
-                                            <th>Status</th>
+                                            @if(auth()->user()->id_role == 3 || auth()->user()->id_role == 2)
+                                                <th>Status</th>
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -70,16 +75,32 @@
                                             <td>{{ $data->tahun_perolehan }}</td>
                                             <td>{{ $data->min_ipk }}</td>
                                             <td>{{ $data->jenis }}</td>
-                                            <td>{{ $data->kontrak_beasiswa }}</td>
-                                            <td width="15%">
-                                                <a href="{{ route('beasiswa.edit', ['beasiswa' => $data->id]) }}">
-                                                    <button class="btn btn-warning ti-pencil-alt"
-                                                        title="Detail"></button>
-                                                </a>
-                                                <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
-                                                    <button class="btn btn-danger ti-trash" title="Hapus"></button>
-                                                </a>
+                                            <td>
+                                                <a target="_blank" href="{{$data->ambilFile()}}">{{$data->persyaratan}}</a>    
                                             </td>
+                                            <td>{{ $data->kontrak_beasiswa }}</td>
+                                            @if(auth()->user()->id_role == 2)
+                                                <td width="15%">
+                                                    <a href="{{ route('akademik-beasiswa.edit', ['akademik_beasiswa' => $data->id]) }}">
+                                                        <button class="btn btn-warning ti-pencil-alt"
+                                                            title="Edit"></button>    
+                                                    </a>
+                                                    <a href="javascript:;" data-toggle="modal" onclick="deleteDataAkademik({{$data->id}})" data-target="#DeleteModal">
+                                                        <button class="btn btn-danger ti-trash" title="Hapus"></button>
+                                                    </a>
+                                                </td>
+                                            @endif
+                                            @if(auth()->user()->id_role == 3)
+                                                <td width="15%">
+                                                    <a href="{{ route('beasiswa.edit', ['beasiswa' => $data->id]) }}">
+                                                        <button class="btn btn-warning ti-pencil-alt"
+                                                            title="Edit"></button>    
+                                                    </a>
+                                                    <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
+                                                        <button class="btn btn-danger ti-trash" title="Hapus"></button>
+                                                    </a>
+                                                </td>
+                                            @endif
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -121,6 +142,13 @@
 
 @section('js')
     <script type="text/javascript">
+        function deleteDataAkademik(id) {
+            var id = id;
+            var url = '{{route("akademik-beasiswa.destroy", ":id") }}';
+            url = url.replace(':id', id);
+            $("#deleteForm").attr('action', url);
+        
+        }
         function deleteData(id) {
             var id = id;
             var url = '{{route("beasiswa.destroy", ":id") }}';

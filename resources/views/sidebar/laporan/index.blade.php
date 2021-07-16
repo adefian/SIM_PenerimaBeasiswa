@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('title')
-    Pengumuman Penerima Beasiswa
+    Laporan Penerima Beasiswa
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card position-relative">
                             <div class="card-body">
-                                <h3 class="font-weight-bold">Halaman Pengumuman Penerima Beasiswa</h3>
+                                <h3 class="font-weight-bold">Halaman Laporan Penerima Beasiswa</h3>
                                 {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
                                         class="text-primary">3 unread alerts!</span></h6> --}}
                             @if (session('success'))
@@ -38,6 +38,36 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12">
+                            @if(auth()->user()->id_role == 1)
+                            <form action="{{route('wadir.filterLaporan')}}" method="get">
+                            @endif
+                            @if(auth()->user()->id_role == 2)
+                            <form action="{{route('akademik.filterLaporan')}}" method="get">
+                            @endif
+                            
+                                <div class="form-group ml-3" style="display:inline-block">
+                                    <div class="input-group-sm rounded">
+                                        <select name="id_beasiswa" id="id_beasiswa" type="text" class="form-control">
+                                            <option value="" selected disabled>- Beasiswa -</option>
+                                            <option value="">Semua</option>
+                                            @foreach($beasiswa as $datas)
+                                            <option value="{{$datas->id}}" @if($datas->id == $bea) {{'selected="selected"'}} @endif >{{$datas->nama_beasiswa}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button id="button" type="submit" class="btn btn-primary btn-sm ml-3" title="Filter">
+                                    Filter
+                                    <i class="ti-filter btn-icon-append"></i>  
+                                </button>
+                                
+                                <button id="button" type="submit" class="btn btn-danger btn-sm ml-3" target="_blank" name="cetakPdf" value="cetakPdf" title="Print">
+                                    Print
+                                    <i class="ti-printer btn-icon-append"></i>  
+                                </button>
+
+                            </form>
 
                             <div class="table-responsive">
                                 <table id="dataTables" class="display expandable-table table-hover" style="width:100%">

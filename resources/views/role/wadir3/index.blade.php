@@ -40,7 +40,7 @@
                                 <div class="card-body">
                                     <p class="mb-4">Info Beasiswa</p>
                                     <p class="fs-30 mb-2">{{ $info_beasiswa }}</p>
-                                    <a href="{{ route('admin-prodi.index') }}">
+                                    <a href="{{ route('wadir3-beasiswa.index') }}">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>
                                     </a>
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="card-body">
                                     <p class="mb-4">Jumlah Mahasiswa</p>
                                     <p class="fs-30 mb-2">{{ $jumlah_mahasiswa }}</p>
-                                    <a href="{{ route('mahasiswa.index') }}">
+                                    <a href="#">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>
                                     </a>
                                 </div>
@@ -60,9 +60,9 @@
                         <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-light-blue">
                                 <div class="card-body">
-                                    <p class="mb-4">Mahasiswa yang baru mendaftar</p>
-                                    <p class="fs-30 mb-2">{{ $mahasiswa_baru_daftar }}</p>
-                                    <a href="{{ route('admin-prodi.pengumuman') }}">
+                                    <p class="mb-4">Mahasiswa Penerima Beasiswa</p>
+                                    <p class="fs-30 mb-2">{{ $mahasiswa_penerima_beasiswa }}</p>
+                                    <a href="{{ route('wadir3.laporan') }}">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>
                                     </a>
                                 </div>

@@ -23780,7 +23780,7 @@ dl li {
 }
 
 .modal .modal-dialog .modal-content .modal-body {
-  padding: 35px 26px;
+  padding: 10px 35px 35px;
 }
 
 .modal .modal-dialog .modal-content .modal-footer {
@@ -30593,5 +30593,43 @@ div.tagsinput span.tag a {
     display: none;
   }
 }
+
+.beep {
+  position: relative; }
+  .beep:after {
+    content: '';
+    position: absolute;
+    top: 16px;
+    right: 8px;
+    width: 7px;
+    height: 7px;
+    background-color: #ffa426;
+    border-radius: 50%;
+    -webkit-animation: pulsate 1s ease-out;
+            animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    opacity: 1; }
+  .beep.beep-sidebar:after {
+    position: static;
+    margin-left: 10px; }
+    
+/* 4.5 Animation */
+.pulsate {
+  -webkit-animation: pulsate 1s ease-out;
+          animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  opacity: 1; }
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0.0; }
+  50% {
+    opacity: 1.0; }
+  100% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0.0; } }
 
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */

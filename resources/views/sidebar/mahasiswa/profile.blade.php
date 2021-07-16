@@ -11,7 +11,11 @@ Data Beasiswa
             <div class="card-body">
                 <div class="row" style="align-items: center;">
                     <div class="col-10 stretch-card">
-                        <h3 class="font-weight-bold ml-4"> {{$data->nama}} </h3>
+                        <h3 class="font-weight-bold ml-4"> {{$data->nama}}
+                            @if ($data->status_bidikmisi == 1)
+                            <p><br>Mahasiswa Bidikmisi</p>
+                            @endif
+                        </h3>
                     </div>
                     <div class="col-2">
                         <div class="justify-content-end d-flex mr-5">
@@ -124,7 +128,7 @@ Data Beasiswa
                         <input name="foto_profile" type="file" class="form-control">
                     </div>
                     <div class="form-group" style="text-align: center;">
-                        <img src="{{$data->ambilGambarKHS()}}" max-height="350px" max-width="80%" alt="foto Khs">
+                        <img src="{{$data->ambilGambarKHS()}}" style="max-height: 80%; max-width: 80%" alt="foto Khs">
                     </div>
                     <div class="form-group">
                         <label for="foto_khs">Foto KHS</label>
@@ -135,7 +139,10 @@ Data Beasiswa
                         <p class="text-danger">Isi form ini jika ingin mengganti password</p>
                         <input type="password" class="form-control" name="password" placeholder="Ubah Password">
                     </div>
-
+                    <div class="form-check">
+                            <input type="hidden" class="form-control" name="mahasiswa_bidikmisi" value="{{$data->status_bidikmisi}}"
+                                value="option4">
+                    </div>
                     <a class="btn btn-light float-right" href="{{ route('mahasiswa.dashboard') }}">Kembali</a>
                     <button type="submit" class="btn btn-primary mr-2 float-right">Update</button>
 

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect()->route('home');
 });
 
 Auth::routes();
@@ -28,17 +28,22 @@ Route::get('/logout', 'AuthController@logout')->name('logout');
 
 Route::group(['middleware' => ['auth', 'wadir3']],function(){
     Route::get('/dashboard-wadir3', 'Wadir3Controller@index')->name('wadir3.index');
-    Route::resource('/wadir3-mahasiswa', 'MahasiswaController');
+    // Route::resource('/wadir3-mahasiswa', 'MahasiswaController');
     Route::resource('/wadir3-beasiswa', 'BeasiswaController');
     Route::get('/wadir3/laporan-beasiswa', 'Wadir3Controller@laporan')->name('wadir3.laporan');
     
+    Route::get('/wadir3/laporan', 'Wadir3Controller@filter_laporan')->name('wadir3.filterLaporan');
 });
 Route::group(['middleware' => ['auth', 'akademik']],function(){
     Route::get('/akademik', 'AkademikController@index')->name('akademik.index');
-    Route::resource('/akademik-mahasiswa', 'MahasiswaController');
+    // Route::resource('/akademik-mahasiswa', 'MahasiswaController');
     Route::resource('/akademik-beasiswa', 'BeasiswaController');
+    Route::get('/akademik/calon_penerima_beasiswa', 'AkademikController@calon_penerima_beasiswa')->name('akademik.calon_penerima_beasiswa');
+    Route::get('/akademik/calon_penerima_beasiswa/{id_pendaftaran}/detail', 'AkademikController@calon_penerima_beasiswa_detail')->name('akademik.calon_penerima_beasiswa-detail');
+    Route::post('/akademik/calon_penerima_beasiswa/{id_pendaftaran}/edit', 'AkademikController@calon_penerima_beasiswa_edit')->name('akademik.calon_penerima_beasiswa-edit');
     Route::get('/akademik/laporan-beasiswa', 'AkademikController@laporan')->name('akademik.laporan');
     
+    Route::get('/akademik/laporan', 'AkademikController@filter_laporan')->name('akademik.filterLaporan');
 });
 
 Route::group(['middleware' => ['auth', 'adminprodi']],function(){

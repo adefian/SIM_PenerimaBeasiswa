@@ -51,22 +51,22 @@ Data Beasiswa
                         @endif
                     </p>
                     <div class="form-group">
-                        <label for="kepemilikan_rumah">Kepemilikan Rumah</label>
+                        <label for="kepemilikan_rumah">Kepemilikan Rumah <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="kepemilikan_rumah"
                             value="{{$data->kepemilikan_rumah}}" placeholder="Kepemilikan Rumah " required>
                     </div>
                     <div class="form-group">
-                        <label for="thn_perolehan">Tahun Perolehan</label>
+                        <label for="thn_perolehan">Tahun Perolehan <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="thn_perolehan" value="{{$data->thn_perolehan}}"
                             placeholder="Tahun Perolehan " required>
                     </div>
                     <div class="form-group">
-                        <label for="luas_tanah_bangunan">Luas Tanah Bangunan</label>
+                        <label for="luas_tanah_bangunan">Luas Tanah Bangunan <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="luas_tanah_bangunan"
                             value="{{$data->luas_tanah_bangunan}}" placeholder="Luas Tanah Bangunan " required>
                     </div>
                     <div class="form-group">
-                        <label for="daya_listrik">Daya Listrik</label>
+                        <label for="daya_listrik">Daya Listrik <a class="text-danger">*</a></label>
                         <select class="form-control" name="daya_listrik">
                             <option value="" selected disabled>- Daya Listrik -</option>
                             <option value="daya 900 VA, Rp 1.352 per kWh" @if("daya 900 VA, Rp 1.352 per kWh"==$data->daya_listrik )
@@ -80,12 +80,12 @@ Data Beasiswa
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="aset_keluarga">Aset Keluarga</label>
+                        <label for="aset_keluarga">Aset Keluarga <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="aset_keluarga" value="{{$data->aset_keluarga}}"
                             placeholder="Aset Keluarga " required>
                     </div>
                     <div class="form-group">
-                        <label for="prestasi">Prestasi</label>
+                        <label for="prestasi">Prestasi <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="prestasi" value="{{$data->prestasi}}"
                             placeholder="Prestasi " required>
                     </div>
@@ -100,21 +100,21 @@ Data Beasiswa
                         <img src="{{$data->ambilGambarRumah()}}"  style="max-height:350px ;max-width:100%;"  alt="foto rumah">
                     </div>
                     <div class="form-group">
-                        <label for="foto_rumah">Foto Rumah</label>
+                        <label for="foto_rumah">Foto Rumah <a class="text-danger">*</a></label>
                         <input type="file" class="form-control" value="{{$data->foto_rumah}}" name="foto_rumah">
                     </div>
                     <div class="form-group">
-                        <label for="bahan_atap">Bahan Atap</label>
+                        <label for="bahan_atap">Bahan Atap <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="bahan_atap" value="{{$data->bahan_atap}}"
                             placeholder="Bahan Atap" required>
                     </div>
                     <div class="form-group">
-                        <label for="bahan_lantai">Bahan Lantai</label>
+                        <label for="bahan_lantai">Bahan Lantai <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="bahan_lantai" value="{{$data->bahan_lantai}}"
                             placeholder="Bahan Lantai" required>
                     </div>
                     <div class="form-group">
-                        <label for="bahan_tembok">Bahan Tembok</label>
+                        <label for="bahan_tembok">Bahan Tembok <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="bahan_tembok" value="{{$data->bahan_tembok}}"
                             placeholder="Bahan Tembok" required>
                     </div>

@@ -51,17 +51,17 @@ Data Beasiswa
                         @endif
                     </p>
                     <div class="form-group">
-                        <label for="nama_ayah">Nama Ayah</label>
+                        <label for="nama_ayah">Nama Ayah <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="nama_ayah"
                             value="{{$data->nama_ayah}}" placeholder="Nama Ayah " required>
                     </div>
                     <div class="form-group">
-                        <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
+                        <label for="pekerjaan_ayah">Pekerjaan Ayah <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="pekerjaan_ayah" value="{{$data->pekerjaan_ayah}}"
                             placeholder="Pekerjaan Ayah " required>
                     </div>
                     <div class="form-group">
-                        <label for="penghasilan_ayah">Penghasilan Ayah</label>
+                        <label for="penghasilan_ayah">Penghasilan Ayah <a class="text-danger">*</a></label>
                         <select class="form-control" name="penghasilan_ayah">
                             <option value="" selected disabled>- Penghasilan Ayah -</option>
                             <option value="- > 1.000.000" @if("- > 1.000.000" == $data->penghasilan_ayah )
@@ -75,12 +75,12 @@ Data Beasiswa
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="tanggungan_keluarga">Tanggungan Keluarga</label>
+                        <label for="tanggungan_keluarga">Tanggungan Keluarga <a class="text-danger">*</a></label>
                         <input type="number" class="form-control" name="tanggungan_keluarga" value="{{$data->tanggungan_keluarga}}"
                             placeholder="Tanggungan Keluarga " required>
                     </div>
                     <div class="form-group">
-                        <label for="nohp_ortu">No Hp Orang Tua</label>
+                        <label for="nohp_ortu">No Hp Orang Tua <a class="text-danger">*</a></label>
                         <input type="number" class="form-control" name="nohp_ortu" value="{{$data->nohp_ortu}}"
                             placeholder="No Hp Orang Tua " required>
                     </div>
@@ -92,17 +92,17 @@ Data Beasiswa
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="nama_ibu">Nama Ibu</label>
+                        <label for="nama_ibu">Nama Ibu <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="nama_ibu"
                             value="{{$data->nama_ibu}}" placeholder="Nama Ibu " required>
                     </div>
                     <div class="form-group">
-                        <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
+                        <label for="pekerjaan_ibu">Pekerjaan Ibu <a class="text-danger">*</a></label>
                         <input type="text" class="form-control" name="pekerjaan_ibu" value="{{$data->pekerjaan_ibu}}"
                             placeholder="Pekerjaan Ibu " required>
                     </div>
                     <div class="form-group">
-                        <label for="penghasilan_ibu">Penghasilan Ibu</label>
+                        <label for="penghasilan_ibu">Penghasilan Ibu <a class="text-danger">*</a></label>
                         <select class="form-control" name="penghasilan_ibu">
                             <option value="" selected disabled>- Penghasilan Ibu -</option>
                             <option value="- > 1.000.000" @if("- > 1.000.000" == $data->penghasilan_ibu )

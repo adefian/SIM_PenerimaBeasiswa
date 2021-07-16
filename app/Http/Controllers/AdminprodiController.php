@@ -91,7 +91,7 @@ class AdminprodiController extends Controller
     
     public function pengumuman()
     {
-        $data = Pendaftaran::orderBy('id', 'DESC')->get();
+        $data = Pendaftaran::where('status', '<=', 3)->orderBy('id', 'DESC')->get();
         
         return view('sidebar.pengumuman.admin-index', compact('data'));
     }

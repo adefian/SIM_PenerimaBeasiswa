@@ -27,6 +27,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('alamat')->nullable();
             $table->string('no_hp')->nullable();
             $table->string('no_wa')->nullable();
+            $table->string('status_bidikmisi')->nullable();
             $table->timestamps();
 
             $table->foreign('id_user')

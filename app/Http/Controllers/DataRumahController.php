@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Mahasiswa;
 use App\DataRumah;
+use App\DataKeluarga;
 
 class DataRumahController extends Controller
 {
@@ -51,7 +53,23 @@ class DataRumahController extends Controller
         $data = DataRumah::where('id_mahasiswa', $mahasiswa->id)->first();
 
         $data_kurang = DataRumah::where('id_mahasiswa', $mahasiswa->id)->whereNull('kepemilikan_rumah')->first();
-        return view('sidebar.data_rumah.index', compact('data', 'data_kurang'));
+
+        $id = auth()->user()->id;
+        $mahasiswa = Mahasiswa::where('id_user', $id)->first();
+        $beep_datarumah = DataRumah::where('id_mahasiswa', $mahasiswa->id)->whereNull('kepemilikan_rumah')->first();
+        $beep_datakeluarga = DataKeluarga::where('id_mahasiswa', $mahasiswa->id)->whereNull('nama_ayah')->first();
+
+        $data_fotokhs = Mahasiswa::where('id_user', $id)->whereNull('foto_khs')->get();
+        $data_ipk = Mahasiswa::where('id_user', $id)->whereNull('ipk')->get();
+        $data_user = User::where('id', $id)->whereNull('email')->get();
+
+        $beep_profile = collect();
+        $beep_profile->push($data_fotokhs, $data_ipk, $data_user);
+        $beep_profile = $beep_profile->collapse()->all();
+
+        return view('sidebar.data_rumah.index', compact(
+            'data', 'data_kurang','beep_profile', 'beep_datarumah', 'beep_datakeluarga'
+        ));
         
     }
 

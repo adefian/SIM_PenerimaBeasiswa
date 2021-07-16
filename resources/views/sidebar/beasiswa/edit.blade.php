@@ -43,28 +43,36 @@
                     <p class="card-description">
                         Basic form elements
                     </p> --}}
-                    <form class="forms-sample" method="POST" action="{{ route('beasiswa.update', ['beasiswa' => $data->id]) }}" enctype="multipart/form-data">
+                    @if (auth()->user()->id_role == 2)
+                        <form class="forms-sample" method="POST" action="{{ route('akademik-beasiswa.update', ['akademik_beasiswa' => $data->id]) }}" enctype="multipart/form-data">
+                    @elseif (auth()->user()->id_role == 3)
+                        <form class="forms-sample" method="POST" action="{{ route('beasiswa.update', ['beasiswa' => $data->id]) }}" enctype="multipart/form-data">
+                    @endif
                         {{csrf_field()}}
                         {{ method_field('PUT') }}
                         <div class="form-group">
-                            <label for="nama_beasiswa">Nama Beasiswa</label>
+                            <label for="nama_beasiswa">Nama Beasiswa <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="nama_beasiswa" value="{{$data->nama_beasiswa}}" placeholder="Nama Beasiswa" required>
                         </div>
                         <div class="form-group">
-                            <label for="tahun_perolehan">Tahun Perolehan</label>
+                            <label for="tahun_perolehan">Tahun Perolehan <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="tahun_perolehan" value="{{$data->tahun_perolehan}}" placeholder="Tahun Perolehan" required="">
                         </div>
                         <div class="form-group">
-                            <label for="min_ipk">Minimal IPK</label>
+                            <label for="min_ipk">Minimal IPK <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="min_ipk" value="{{$data->min_ipk}}" maxlength="4" placeholder="Minimal IPK" required>
                         </div>
                         <div class="form-group">
-                            <label for="jenis">Jenis</label>
+                            <label for="jenis">Jenis <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="jenis" value="{{$data->jenis}}" placeholder="Jenis" required>
                         </div>
                         <div class="form-group">
-                            <label for="kontrak_beasiswa">Kontrak Beasiswa</label>
+                            <label for="kontrak_beasiswa">Kontrak Beasiswa <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="kontrak_beasiswa" value="{{$data->kontrak_beasiswa}}" placeholder="Kontrak Beasiswa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="persyaratan">Persyaratan</label>
+                            <input type="file" class="form-control" name="persyaratan">
                         </div>
                         <a class="btn btn-light float-right" href="{{ route('beasiswa.index') }}">Kembali</a>
                         <button type="submit" class="btn btn-primary mr-2 float-right">Update</button>

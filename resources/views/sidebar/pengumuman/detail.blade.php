@@ -101,9 +101,10 @@ Detail Data Pendaftar
                                 
                             </div>
 
-                            <a class="btn btn-primary float-right" href="{{ route('admin-prodi.pengumuman') }}">Kembali</a>
+                            <a class="btn btn-primary float-right" href="{{ url()->previous() }}">Kembali</a>
 
                         </div>
+                        
                     </div>
                 </div>
             </div>

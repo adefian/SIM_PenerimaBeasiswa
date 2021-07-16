@@ -10,7 +10,7 @@ class Mahasiswa extends Model
 
     protected $fillable = [
         'id_user', 'id_prodi', 'nama', 'nim', 'semester', 'ipk', 'kelas',
-        'foto_khs', 'nik', 'alamat', 'no_hp', 'no_wa'
+        'foto_khs', 'nik', 'alamat', 'no_hp', 'no_wa', 'status_bidikmisi'
     ];
 
     public function prodi()
@@ -23,7 +23,7 @@ class Mahasiswa extends Model
         return $this->belongsTo('App\User', 'id_user');
     }
 
-    public function ambilGambarKHS()
+    public function ambilGambarKHS() 
     {
         if(!$this->foto_khs){
             return asset('Images/Mahasiswa/KHS/a.png');

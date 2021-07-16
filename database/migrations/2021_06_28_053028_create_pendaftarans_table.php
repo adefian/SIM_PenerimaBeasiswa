@@ -19,6 +19,7 @@ class CreatePendaftaransTable extends Migration
             $table->bigInteger('id_data_keluarga')->unsigned()->nullable();
             $table->bigInteger('id_data_rumah')->unsigned()->nullable();
             $table->bigInteger('id_beasiswa')->unsigned()->nullable();
+            $table->string('persyaratan')->nullable();
             $table->string('status')->nullable();
 
             $table->timestamps();

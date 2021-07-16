@@ -81,10 +81,10 @@
                                             <td>{{ $data->semester }}</td>
                                             <td>{{ $data->ipk }}</td>
                                             <td>{{ $data->no_wa }}</td>
-                                            <td>
+                                            <td style="width: 15%">
                                                 <a href="{{ route('mahasiswa.edit', ['mahasiswa' => $data->id]) }}">
                                                     <button class="btn btn-warning ti-pencil-alt"
-                                                        title="Detail"></button>
+                                                        title="Edit"></button>
                                                 </a>
                                                 <a href="javascript:;" data-toggle="modal" onclick="deleteData({{$data->id}})" data-target="#DeleteModal">
                                                     <button class="btn btn-danger ti-trash" title="Hapus"></button>

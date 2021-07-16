@@ -40,7 +40,7 @@
                                 <div class="card-body">
                                     <p class="mb-4">Info Beasiswa</p>
                                     <p class="fs-30 mb-2">{{ $info_beasiswa }}</p>
-                                    <a href="{{ route('admin-prodi.index') }}">
+                                    <a href="{{ route('beasiswa.index') }}">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>
                                     </a>
                                 </div>
@@ -49,7 +49,7 @@
                         <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-dark-blue">
                                 <div class="card-body">
-                                    <p class="mb-4">Jumlah Mahasiswa</p>
+                                    <p class="mb-4">Jumlah Keseluruhan Mahasiswa</p>
                                     <p class="fs-30 mb-2">{{ $jumlah_mahasiswa }}</p>
                                     <a href="{{ route('mahasiswa.index') }}">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>
@@ -60,7 +60,7 @@
                         <div class="col-md-4 mb-4 stretch-card transparent">
                             <div class="card card-light-blue">
                                 <div class="card-body">
-                                    <p class="mb-4">Mahasiswa yang baru mendaftar</p>
+                                    <p class="mb-4">Mahasiswa yang baru mendaftar Beasiswa</p>
                                     <p class="fs-30 mb-2">{{ $mahasiswa_baru_daftar }}</p>
                                     <a href="{{ route('admin-prodi.pengumuman') }}">
                                         <p style="color: white;">Klik disini untuk info lebih lanjut</p>

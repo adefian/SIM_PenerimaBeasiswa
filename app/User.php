@@ -72,7 +72,7 @@ class User extends Authenticatable
     public function ambilFotoProfile()
     {
         if(!$this->foto){
-            return asset('Images/Profile/a.png');
+            return asset('Images/Profile/avatar.png');
         }else{
             return asset('Images/Profile/'.$this->foto);
         }

@@ -11,7 +11,7 @@
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card position-relative">
                             <div class="card-body">
-                                <h3 class="font-weight-bold">Halaman Pengajuan Rekomendasi Mahasiswa</h3>
+                                <h3 class="font-weight-bold">Halaman Rekomendasi Mahasiswa Dari Prodi</h3>
                                 {{-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span
                                         class="text-primary">3 unread alerts!</span></h6> --}}
                             @if (session('success'))
@@ -74,10 +74,12 @@
                                                     <div class="badge badge-danger">Gagal</div>
                                                 @elseif ($data->status == 3)
                                                     <div class="badge badge-success">Direkomendasikan</div>
+                                                @elseif ($data->status == 5)
+                                                    <div class="badge badge-success">Diterima</div>
                                                 @endif
                                             </td>
                                             <td style="width:20%; text-align:center">
-                                                <a href="{{ route('admin-prodi.pengumuman-detail', $data->id) }}">
+                                                <a href="{{ route('akademik.calon_penerima_beasiswa-detail', $data->id) }}">
                                                     <button class="btn btn-warning ti-eye"
                                                         title="Detail"></button>
                                                 </a>
@@ -113,7 +115,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="hidden" class="form-control" name="status" value="3">
+                            <input type="hidden" class="form-control" name="status" value="5">
                         </div>
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
@@ -138,7 +140,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="hidden" class="form-control" name="status" value="2">
+                            <input type="hidden" class="form-control" name="status" value="4">
                         </div>
                         {{ csrf_field() }}
                         {{ method_field('POST') }}
@@ -157,7 +159,7 @@
     <script type="text/javascript">
         function TerimaData(id) {
             var id = id;
-            var url = '{{route("admin-prodi.pengumuman-edit", ":id") }}';
+            var url = '{{route("akademik.calon_penerima_beasiswa-edit", ":id") }}';
             url = url.replace(':id', id);
             $("#terimaForm").attr('action', url);
         }
@@ -169,7 +171,7 @@
     <script type="text/javascript">
         function TolakData(id) {
             var id = id;
-            var url = '{{route("admin-prodi.pengumuman-edit", ":id") }}';
+            var url = '{{route("akademik.calon_penerima_beasiswa-edit", ":id") }}';
             url = url.replace(':id', id);
             $("#tolakForm").attr('action', url);
         }

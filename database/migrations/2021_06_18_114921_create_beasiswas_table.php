@@ -21,6 +21,7 @@ class CreateBeasiswasTable extends Migration
             $table->double('min_ipk')->nullable();
             $table->string('jenis')->nullable();
             $table->string('kontrak_beasiswa')->nullable();
+            $table->string('persyaratan')->nullable();
             $table->timestamps();
 
             // $table->foreign('id_kelas')

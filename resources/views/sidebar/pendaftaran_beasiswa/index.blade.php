@@ -59,6 +59,7 @@
                                             <th>Tahun Perolehan</th>
                                             <th>Minimal IPK</th>
                                             <th>Jenis</th>
+                                            <th>Persyaratan</th>
                                             <th>Kontrak Beasiswa</th>
                                             <th>Daftar disini</th>
                                         </tr>
@@ -72,6 +73,9 @@
                                             <td>{{ $data->tahun_perolehan }}</td>
                                             <td>{{ $data->min_ipk }}</td>
                                             <td>{{ $data->jenis }}</td>
+                                            <td>
+                                                <a target="_blank" href="{{$data->ambilFile()}}">{{$data->persyaratan}}</a>    
+                                            </td>
                                             <td>{{ $data->kontrak_beasiswa }}</td>
                                             <td width="15%" style="text-align: center">
                                                 @if($data_kurang)
@@ -100,7 +104,7 @@
     <div id="DaftarModal" class="modal fade" role="dialog">
         <div class="modal-dialog ">
             <!-- Modal content-->
-            <form action="" id="daftarForm" method="post">
+            <form action="" id="daftarForm" method="post" enctype="multipart/form-data">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Daftar Beasiswa ini</h5>
@@ -114,7 +118,12 @@
                         <div class="form-group">
                             <input class="form-control" type="hidden" name="id_user" value="{{ Auth::user()->id}}" >
                         </div>
-                        <p>Apakah anda yakin ingin Mendaftar Beasiswa ini ?</p>
+                        <div class="form-group">
+                            <label for="persyaratan">File Persyaratan <a class="text-danger">*</a></label>
+                            <small class="text-danger"><br> Format : (Nama)_(Beasiswa) </small>
+                            <input type="file" class="form-control" name="persyaratan" required>
+                        </div>
+                        <small>Untuk Persyaratan bisa dilihat dideskripsi<br></small>
                         <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Batal</button>
                         <button type="submit" name="" class="btn btn-success float-right mr-2" data-dismiss="modal" onclick="formSubmit()">Daftar</button>
                     </div>

@@ -47,23 +47,23 @@
                         {{csrf_field()}}
                         {{ method_field('PUT') }}
                         <div class="form-group">
-                            <label for="nama">Nama</label>
+                            <label for="nama">Nama <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="nama" value="{{$data->nama}}" placeholder="Nama " required>
                         </div>
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label for="username">Username <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="username" value="{{$data->user->username}}" placeholder="Username " readonly>
                         </div>
                         <div class="form-group">
-                            <label for="nim">NIM</label>
+                            <label for="nim">NIM <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="nim" value="{{$data->nim}}" placeholder="NIM" required="">
                         </div>
                         <div class="form-group">
-                            <label for="nik">NIK</label>
+                            <label for="nik">NIK <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="nik" value="{{$data->nik}}" maxlength="4" placeholder="NIK" required>
                         </div>
                         <div class="form-group">
-                            <label for="prodi">Prodi</label>
+                            <label for="prodi">Prodi <a class="text-danger">*</a></label>
                             <select class="form-control" name="prodi">
                                 <option value="" selected disabled>- Prodi -</option>
                                 @foreach ($prodi as $prodi)
@@ -72,32 +72,38 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="kelas">Kelas</label>
+                            <label for="kelas">Kelas <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="kelas" value="{{$data->kelas}}" placeholder="Kelas" required>
                         </div>
                         <div class="form-group">
-                            <label for="semester">Semester</label>
+                            <label for="semester">Semester <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="semester" value="{{$data->semester}}" placeholder="Semester" required>
                         </div>
                         <div class="form-group">
-                            <label for="ipk">IPK</label>
+                            <label for="ipk">IPK <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="ipk" value="{{$data->ipk}}" placeholder="IPK" required>
                         </div>
                         <div class="form-group">
-                            <label for="foto_khs">Foto KHS</label>
+                            <label for="foto_khs">Foto KHS <a class="text-danger">*</a></label>
                             <input type="file" class="form-control" name="foto_khs" value="{{$data->foto_khs}}" placeholder="Foto KHS">
                         </div>
                         <div class="form-group">
-                            <label for="alamat">Alamat</label>
+                            <label for="alamat">Alamat <a class="text-danger">*</a></label>
                             <textarea class="form-control" name="alamat" rows="3">{{$data->alamat}}</textarea>
                         </div>
                         <div class="form-group">
-                            <label for="no_hp">No Telepon</label>
+                            <label for="no_hp">No Telepon <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="no_hp" value="{{$data->no_hp}}" placeholder="No Telepon" required>
                         </div>
                         <div class="form-group">
-                            <label for="no_wa">No WhatsApp</label>
+                            <label for="no_wa">No WhatsApp <a class="text-danger">*</a></label>
                             <input type="text" class="form-control" name="no_wa" value="{{$data->no_wa}}" placeholder="No WhatsApp" required>
+                        </div>
+                        <div class="form-check form-check-flat form-check-primary">
+                            <label class="form-check-label">
+                                <input type="checkbox" name="mahasiswa_bidikmisi" value="1" class="form-check-input">
+                                Mahasiswa Bidikmisi
+                                <i class="input-helper"></i></label>
                         </div>
                         <a class="btn btn-light float-right" href="{{ route('mahasiswa.index') }}">Kembali</a>
                         <button type="submit" class="btn btn-primary mr-2 float-right">Update</button>
